@@ -3,192 +3,519 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dexter — Web Developer</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Dexter Alayan | Student Portfolio</title>
+  <meta
+    name="description"
+    content="Portfolio of Dexter Alayan, a BS Computer Science student focused on web development, UI design, and building real projects."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+  <link rel="stylesheet" href="css/contact.css" />
 </head>
 <body class="page-enter">
 
-  <!-- ─── Navbar ─── -->
-  <header class="navbar">
-    <a href="index.html" class="logo">Dex<span>.</span></a>
-    <button class="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-      <a href="contact.html" class="nav-cta">Hire Me</a>
-    </nav>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a href="index.html" class="brand">Dexter<span>.</span></a>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" class="site-nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- ─── Hero ─── -->
-  <section class="hero" id="home">
-    <div class="hero-bg"></div>
-
-    <p class="hero-label">Available for freelance work</p>
-
-    <h1>
-      Hello, I'm<br>
-      <em>Dexter</em>
-    </h1>
-
-    <p class="hero-subtitle">
-      A passionate web developer crafting elegant, performant digital experiences from the ground up.
-    </p>
-
-    <div class="hero-actions">
-      <a href="projects.html" class="btn-primary">
-        View My Work
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
-      <a href="contact.html" class="btn-secondary">
-        Get In Touch
-      </a>
-    </div>
-
-    <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-number">3<span>+</span></div>
-        <div class="stat-label">Years Exp.</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">20<span>+</span></div>
-        <div class="stat-label">Projects Done</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">15<span>+</span></div>
-        <div class="stat-label">Happy Clients</div>
-      </div>
-    </div>
-
-    <div class="hero-scroll">
-      <span class="scroll-text">Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- ─── About Preview ─── -->
-  <section class="about" id="about" style="padding-top: 80px; padding-bottom: 80px;">
-    <div class="section-header reveal">
-      <p class="section-label">Who I Am</p>
-      <h2 class="section-title">DEXTER ALAYAN</h2>
-      <!-- <h2 class="section-title">DEXTER ALAYAN<br>ALAYAN <em>purpose</em></h2> -->
-    </div>
-
-    <div class="about-grid">
-      <div class="about-text reveal reveal-delay-1">
-        <p>
-          I'm Dexter, a web developer based in the Philippines with a love for clean code and beautiful interfaces.
-        </p>
-        <!-- <p>
-          I specialize in building modern, responsive websites and web applications using the latest technologies. Every project I take on is built with performance, accessibility, and user experience at the forefront.
-        </p>
-        <p>
-          When I'm not coding, you'll find me exploring design trends, contributing to open-source projects, or levelling up my skills.
-        </p> -->
-        <br>
-        <a href="about.html" class="btn-secondary" style="width: fit-content; margin-top: 8px;">More About Me</a>
-      </div>
-
-      <div class="about-image reveal reveal-delay-2">
-        <div class="about-decoration"></div>
-        <div class="about-photo">
-          <span class="about-photo-placeholder">D</span>
-          <div class="about-photo-tag">Dexter · Web Dev</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── Projects Preview ─── -->
-  <section class="projects" id="projects">
-    <div class="section-header reveal">
-      <p class="section-label">Featured Work</p>
-      <h2 class="section-title">Selected <em>Projects</em></h2>
-    </div>
-
-    <div class="projects-grid">
-      <a href="projects.html" class="project-card reveal reveal-delay-1">
-        <div class="project-card-image project-img-gradient-1">
-          <span class="project-icon">🤖</span>
-        </div>
-        <div class="project-card-body">
-          <div class="project-tags">
-  <span class="tag">React</span>
-            <span class="tag">Python</span>
-            <span class="tag">Next.js</span>
-            <span class="tag">MySQL</span>
+  <main>
+    <section class="hero-section" id="home">
+      <div class="container hero-layout">
+        <div class="hero-copy reveal">
+          <p class="hero-kicker">Hi, It's Me</p>
+          <h1>I'm <span>Dexter</span></h1>
+          <p class="lead">
+            A BS Computer Science student who enjoys building simple, clean, and
+            improving websites while growing step by step as a frontend developer.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="button button-primary">View Projects</a>
+            <a href="#about" class="button button-secondary">About Me</a>
           </div>
-          <h3 class="project-card-title">Face Tracker</h3>
-          <p class="project-card-desc">A Web-based online exam system user facial recognition authentication, face tracking, and eye movements.</p>
-          <span class="project-card-link">
-            View Project
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <a href="projects.html" class="project-card reveal reveal-delay-2">
-        <div class="project-card-image project-img-gradient-2">
-          <span class="project-icon">📊</span>
-        </div>
-        <div class="project-card-body">
-          <div class="project-tags">
-            <span class="tag">Vue.js</span>
-            <span class="tag">Firebase</span>
+          <div class="hero-socials" aria-label="Social links">
+            <a href="https://github.com/dexterdamn" target="_blank" rel="noreferrer" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.59 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.66-.22.66-.5 0-.24-.01-1.03-.01-1.86-2.78.62-3.37-1.22-3.37-1.22-.45-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .08 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.63-1.37-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.33 9.33 0 0 1 12 6.84c.85 0 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.56 1.41.21 2.46.11 2.72.64.72 1.03 1.63 1.03 2.75 0 3.95-2.34 4.82-4.57 5.07.36.32.68.95.68 1.92 0 1.39-.01 2.5-.01 2.84 0 .28.17.61.67.5A10.26 10.26 0 0 0 22 12.25C22 6.59 17.52 2 12 2Z" fill="currentColor"/>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/decstur" target="_blank" rel="noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13.54 21v-7.3h2.45l.37-2.85h-2.82V9.03c0-.82.23-1.38 1.4-1.38H16.5V5.1c-.27-.04-1.18-.1-2.23-.1-2.2 0-3.71 1.35-3.71 3.84v2.01H8.06v2.85h2.5V21h2.98Z" fill="currentColor"/>
+              </svg>
+            </a>
+            <a href="mailto:dexteralayan279@gmail.com" aria-label="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 6.75A2.75 2.75 0 0 1 5.75 4h12.5A2.75 2.75 0 0 1 21 6.75v10.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25V6.75Zm2.2-.25 6.8 5.39 6.8-5.39H5.2Zm13.05 11c.4 0 .75-.35.75-.75V8.04l-6.38 5.05a1 1 0 0 1-1.24 0L5 8.04v8.71c0 .4.35.75.75.75h12.5Z" fill="currentColor"/>
+              </svg>
+            </a>
           </div>
-          <h3 class="project-card-title">Analytics Dashboard</h3>
-          <p class="project-card-desc">Real-time data visualization dashboard with interactive charts and filters.</p>
-          <span class="project-card-link">
-            View Project
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </span>
         </div>
-      </a>
 
-      <a href="projects.html" class="project-card reveal reveal-delay-3">
-        <div class="project-card-image project-img-gradient-3">
-          <span class="project-icon">💬</span>
+        <div class="hero-visual reveal" aria-label="Profile photo">
+          <div class="hero-blob"></div>
+          <img src="image/dex.png" alt="Portrait of Dexter Alayan" class="hero-photo" />
+          <div class="hero-line"></div>
         </div>
-        <div class="project-card-body">
-          <div class="project-tags">
-            <span class="tag">HTML/CSS</span>
-            <span class="tag">JS</span>
+      </div>
+    </section>
+
+    <section class="section home-section" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">About</p>
+          <h2>My learning journey in web development.</h2>
+          <p class="section-text">
+            This section shares who I am, what I enjoy building, and how I am growing as a student developer
+            through real work and consistent practice.
+          </p>
+        </div>
+
+        <div class="about-layout">
+          <article class="panel reveal story-card">
+            <span class="panel-label">Personal Introduction</span>
+            <h2>Dexter Alayan</h2>
+            <p class="story-tagline">BS Computer Science Student &amp; Aspiring Web Developer</p>
+            <p>
+              I'm a BSCS student who enjoys creating and developing websites. What draws me to this field is how it
+              combines creativity with logic, where every design decision and line of code has a purpose.
+            </p>
+            <p>
+              I'm still early in my journey, and there are times when debugging or understanding a new concept takes
+              longer than I expect. Even so, I keep learning step by step and treat each challenge as part of the
+              process.
+            </p>
+            <p>
+              This portfolio is an honest record of what I've built so far. It reflects where I started, the skills
+              I've developed, and the quality I'm working toward with every new project.
+            </p>
+            <div class="tag-list" style="margin-top: 1.5rem;">
+              <span class="tag">HTML &amp; CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">React</span>
+              <span class="tag">Vue.js</span>
+              <span class="tag">Python</span>
+              <span class="tag">Firebase</span>
+            </div>
+          </article>
+
+          <aside class="panel reveal facts-card">
+            <span class="panel-label">Quick Facts</span>
+            <ul class="facts-list">
+              <li>
+                <span class="fact-label">Program</span>
+                <span class="fact-value">BS Computer Science</span>
+              </li>
+              <li>
+                <span class="fact-label">Primary Interest</span>
+                <span class="fact-value">Website Creation &amp; Development</span>
+              </li>
+              <li>
+                <span class="fact-label">Current Goal</span>
+                <span class="fact-value">Improve UI, UX &amp; Code Structure</span>
+              </li>
+              <li>
+                <span class="fact-label">Approach</span>
+                <span class="fact-value">Learning by building real projects</span>
+              </li>
+              <li>
+                <span class="fact-label">Email</span>
+                <span class="fact-value">dexteralayan279@gmail.com</span>
+              </li>
+              <li>
+                <span class="fact-label">GitHub</span>
+                <span class="fact-value">github.com/dexterdamn</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft home-section" data-nav-target="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Skills &amp; Growth</p>
+          <h2>What I'm working on</h2>
+        </div>
+
+        <div class="growth-grid">
+          <article class="panel skill-card reveal">
+            <div class="skill-icon">FD</div>
+            <h3>Frontend Development</h3>
+            <p>Building confidence in HTML, CSS, and JavaScript to create websites that are structured, responsive, and visually clear.</p>
+          </article>
+
+          <article class="panel skill-card reveal">
+            <div class="skill-icon">UX</div>
+            <h3>User Experience</h3>
+            <p>I want my interfaces to feel intuitive and easy to navigate, especially during school presentations and portfolio reviews.</p>
+          </article>
+
+          <article class="panel skill-card reveal">
+            <div class="skill-icon">PS</div>
+            <h3>Problem Solving</h3>
+            <p>When I encounter errors or confusion, I work through the problem step by step rather than relying on guesswork.</p>
+          </article>
+        </div>
+
+        <div class="skills-section reveal">
+          <div class="skill-bars">
+            <div class="skill-bar-item">
+              <div class="skill-bar-header">
+                <span>HTML &amp; CSS</span>
+                <span class="skill-pct">80%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" style="--w: 80%;"></div>
+              </div>
+            </div>
+
+            <div class="skill-bar-item">
+              <div class="skill-bar-header">
+                <span>JavaScript</span>
+                <span class="skill-pct">65%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" style="--w: 65%;"></div>
+              </div>
+            </div>
+
+            <div class="skill-bar-item">
+              <div class="skill-bar-header">
+                <span>React / Next.js</span>
+                <span class="skill-pct">55%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" style="--w: 55%;"></div>
+              </div>
+            </div>
+
+            <div class="skill-bar-item">
+              <div class="skill-bar-header">
+                <span>Python</span>
+                <span class="skill-pct">50%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" style="--w: 50%;"></div>
+              </div>
+            </div>
+
+            <div class="skill-bar-item">
+              <div class="skill-bar-header">
+                <span>UI / UX Design</span>
+                <span class="skill-pct">60%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" style="--w: 60%;"></div>
+              </div>
+            </div>
           </div>
-          <h3 class="project-card-title">Portfolio Website</h3>
-          <p class="project-card-desc">A sleek, responsive personal portfolio with smooth animations and dark theme.</p>
-          <span class="project-card-link">
-            View Project
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </span>
         </div>
-      </a>
-    </div>
+      </div>
+    </section>
 
-    <div style="text-align: center; margin-top: 48px;" class="reveal">
-      <a href="projects.html" class="btn-secondary">See All Projects</a>
-    </div>
-  </section>
+    <section class="section home-section" data-nav-target="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Timeline</p>
+          <h2>My development path</h2>
+        </div>
 
-  <!-- ─── Footer ─── -->
-  <footer>
-    <div class="footer-logo">Dex<span>.</span></div>
-    <p class="footer-copy">© 2025 Dexter. Built with passion.</p>
-    <div class="footer-socials">
-      <a href="https://github.com/dexterdamn" class="social-link" aria-label="GitHub">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-      </a>
-      <!-- <a href="#" class="social-link" aria-label="LinkedIn">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </a>
-      <a href="#" class="social-link" aria-label="Twitter">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      </a> -->
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <span class="timeline-badge">Starting Point</span>
+            <h3>Curiosity about websites</h3>
+            <p>I became interested in how websites were made, how a blank screen could become something interactive and useful. That curiosity led me to explore HTML, CSS, and the basics of web design.</p>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-badge">Current Stage</span>
+            <h3>BSCS student and active learner</h3>
+            <p>I'm currently deepening my skills through coursework, personal projects, and a lot of hands-on practice. I'm learning how to write cleaner code, think through design problems, and use modern tools like React and Firebase.</p>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-badge">Next Goal</span>
+            <h3>More polished, professional projects</h3>
+            <p>My aim is to build websites and web applications that are better structured, more visually refined, and demonstrate a clear understanding of both frontend development and user experience.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft home-section filter-section" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Projects</p>
+          <h2>My web development projects &amp; work.</h2>
+          <p class="section-text">
+            These projects were built for learning, school requirements, and personal growth. Each one reflects a
+            stage of my development as a web developer.
+          </p>
+        </div>
+
+        <div id="filter-bar" class="filter-bar reveal">
+          <button class="filter-btn active" data-filter="all" type="button">All Projects</button>
+          <button class="filter-btn" data-filter="frontend" type="button">Frontend</button>
+          <button class="filter-btn" data-filter="fullstack" type="button">Full Stack</button>
+          <button class="filter-btn" data-filter="ui" type="button">UI / UX</button>
+        </div>
+
+        <div class="projects-grid">
+          <article class="panel project-item reveal" data-category="fullstack">
+            <div class="project-item-accent" style="--c: #8a6a42;"></div>
+            <div class="project-head">
+              <span class="panel-label">Project 01 - Full Stack</span>
+              <h2>Face Tracker</h2>
+            </div>
+            <div class="project-body">
+              <p>A web-based online exam system with facial recognition authentication, real-time face tracking, and eye movement monitoring. Built to support academic integrity during remote assessments.</p>
+              <div class="tag-list">
+                <span class="tag">React</span>
+                <span class="tag">Python</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">MySQL</span>
+              </div>
+            </div>
+            <div class="project-meta">
+              <div class="project-links">
+                <a href="https://final-rgtw-git-main-dexterdamns-projects.vercel.app/home" target="_blank" rel="noopener noreferrer" class="project-link primary">Live Demo</a>
+              </div>
+              <span class="project-status status-live">Live</span>
+            </div>
+          </article>
+
+          <article class="panel project-item reveal" data-category="frontend">
+            <div class="project-item-accent" style="--c: #7d8b67;"></div>
+            <div class="project-head">
+              <span class="panel-label">Project 02 - Frontend</span>
+              <h2>Analytics Dashboard</h2>
+            </div>
+            <div class="project-body">
+              <p>A data visualization dashboard for presenting information clearly through interactive charts, dynamic filters, and a clean reporting layout designed for quick understanding.</p>
+              <div class="tag-list">
+                <span class="tag">Vue.js</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">D3.js</span>
+              </div>
+            </div>
+            <div class="project-meta">
+              <div class="project-links">
+                <span class="project-link-placeholder">Demo Coming Soon</span>
+              </div>
+              <span class="project-status status-wip">In Progress</span>
+            </div>
+          </article>
+
+          <article class="panel project-item reveal" data-category="ui">
+            <div class="project-item-accent" style="--c: #6f7f95;"></div>
+            <div class="project-head">
+              <span class="panel-label">Project 03 - UI / UX</span>
+              <h2>Portfolio Website</h2>
+            </div>
+            <div class="project-body">
+              <p>A personal portfolio website designed for school presentations and portfolio reviews. Built for readability, clean structure, and a formal yet approachable visual style.</p>
+              <div class="tag-list">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Figma</span>
+              </div>
+            </div>
+            <div class="project-meta">
+              <div class="project-links">
+                <span class="project-link-placeholder">This Project</span>
+              </div>
+              <span class="project-status status-live">Live</span>
+            </div>
+          </article>
+
+          <article class="panel project-item reveal" data-category="fullstack">
+            <div class="project-item-accent" style="--c: #9a6b4b;"></div>
+            <div class="project-head">
+              <span class="panel-label">Project 04 - Full Stack</span>
+              <h2>Task Management App</h2>
+            </div>
+            <div class="project-body">
+              <p>A collaborative task board supporting team workflows, organized task tracking, and real-time updates. Designed to help small teams coordinate work more effectively.</p>
+              <div class="tag-list">
+                <span class="tag">React</span>
+                <span class="tag">Express</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+            </div>
+            <div class="project-meta">
+              <div class="project-links">
+                <span class="project-link-placeholder">Demo Coming Soon</span>
+              </div>
+              <span class="project-status status-wip">In Progress</span>
+            </div>
+          </article>
+
+          <article class="panel project-item reveal" data-category="frontend">
+            <div class="project-item-accent" style="--c: #5a7d8a;"></div>
+            <div class="project-head">
+              <span class="panel-label">Project 05 - Frontend</span>
+              <h2>Weather App</h2>
+            </div>
+            <div class="project-body">
+              <p>A weather dashboard that shows current conditions, a weekly forecast, and location-based weather data. Focused on a clear, usable interface with real API integration.</p>
+              <div class="tag-list">
+                <span class="tag">JavaScript</span>
+                <span class="tag">REST API</span>
+                <span class="tag">CSS</span>
+              </div>
+            </div>
+            <div class="project-meta">
+              <div class="project-links">
+                <span class="project-link-placeholder">Demo Coming Soon</span>
+              </div>
+              <span class="project-status status-concept">Concept</span>
+            </div>
+          </article>
+
+          <article class="panel project-item reveal" data-category="ui">
+            <div class="project-item-accent" style="--c: #7a5f8a;"></div>
+            <div class="project-head">
+              <span class="panel-label">Project 06 - UI / UX</span>
+              <h2>Restaurant Landing Page</h2>
+            </div>
+            <div class="project-body">
+              <p>A landing page concept for a restaurant featuring visual sections, menu highlights, and a reservation area. Designed to feel warm, inviting, and easy to browse.</p>
+              <div class="tag-list">
+                <span class="tag">Figma</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+              </div>
+            </div>
+            <div class="project-meta">
+              <div class="project-links">
+                <span class="project-link-placeholder">Demo Coming Soon</span>
+              </div>
+              <span class="project-status status-concept">Concept</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section home-section" id="contact">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Have a project in mind? Let's chat.</h2>
+          <p class="section-text">
+            Reach out through my contact details or send a message using the form below.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          <aside class="panel reveal contact-info-card">
+            <span class="panel-label">Contact Details</span>
+            <h2>Get in touch</h2>
+            <p>You can contact me through email, GitHub, or my contact number.</p>
+
+            <div class="contact-list">
+              <a href="mailto:dexteralayan279@gmail.com" class="contact-row">
+                <div class="contact-row-body">
+                  <span class="contact-label">Email</span>
+                  <span class="contact-value">dexteralayan279@gmail.com</span>
+                </div>
+              </a>
+
+              <a href="https://github.com/dexterdamn" target="_blank" rel="noopener noreferrer" class="contact-row">
+                <div class="contact-row-body">
+                  <span class="contact-label">GitHub</span>
+                  <span class="contact-value">github.com/dexterdamn</span>
+                </div>
+              </a>
+
+              <a href="tel:+639123456789" class="contact-row">
+                <div class="contact-row-body">
+                  <span class="contact-label">Contact Number</span>
+                  <span class="contact-value">+63 912 345 6789</span>
+                </div>
+              </a>
+            </div>
+          </aside>
+
+          <section class="panel reveal contact-form-card">
+            <div class="contact-form-head">
+              <h2>Contact Form</h2>
+              <p>Have a project in mind? Let's chat.</p>
+            </div>
+
+            <form class="contact-form" id="contact-form">
+              <label class="form-field" for="contact-email">
+                <span>Email</span>
+                <input id="contact-email" name="email" type="email" placeholder="you@gmail.com" required />
+              </label>
+
+              <label class="form-field" for="contact-message">
+                <span>Message</span>
+                <textarea id="contact-message" name="message" placeholder="Tell me about your project..." rows="7" required></textarea>
+              </label>
+
+              <button type="submit" class="button button-primary form-submit">Send</button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <div>
+        <span class="footer-brand">Dexter Alayan</span>
+      </div>
+      <div class="footer-right">
+        <div class="footer-socials" aria-label="Social links">
+          <a href="https://github.com/dexterdamn" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.59 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.66-.22.66-.5 0-.24-.01-1.03-.01-1.86-2.78.62-3.37-1.22-3.37-1.22-.45-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .08 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.63-1.37-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.33 9.33 0 0 1 12 6.84c.85 0 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.56 1.41.21 2.46.11 2.72.64.72 1.03 1.63 1.03 2.75 0 3.95-2.34 4.82-4.57 5.07.36.32.68.95.68 1.92 0 1.39-.01 2.5-.01 2.84 0 .28.17.61.67.5A10.26 10.26 0 0 0 22 12.25C22 6.59 17.52 2 12 2Z" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/decstur" target="_blank" rel="noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M13.54 21v-7.3h2.45l.37-2.85h-2.82V9.03c0-.82.23-1.38 1.4-1.38H16.5V5.1c-.27-.04-1.18-.1-2.23-.1-2.2 0-3.71 1.35-3.71 3.84v2.01H8.06v2.85h2.5V21h2.98Z" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="mailto:dexteralayan279@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 6.75A2.75 2.75 0 0 1 5.75 4h12.5A2.75 2.75 0 0 1 21 6.75v10.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25V6.75Zm2.2-.25 6.8 5.39 6.8-5.39H5.2Zm13.05 11c.4 0 .75-.35.75-.75V8.04l-6.38 5.05a1 1 0 0 1-1.24 0L5 8.04v8.71c0 .4.35.75.75.75h12.5Z" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script src="js/script.js"></script>
+  <script>
+    document.getElementById("contact-form")?.addEventListener("submit", event => {
+      event.preventDefault();
+      window.showToast?.("OK", "Message ready to send.");
+    });
+  </script>
 </body>
 </html>
