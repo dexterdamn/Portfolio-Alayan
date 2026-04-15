@@ -16,6 +16,3 @@
 ### 3. [x] Cleanup ✓
    - Delete GmailFirebase.js ✓
 
-**Test commands:**  
-`start contact.html` (send test message)  
-`start admin.html` (pw=dexter2025, check live sync)
