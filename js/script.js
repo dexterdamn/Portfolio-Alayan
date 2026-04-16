@@ -89,25 +89,25 @@ if (currentPage === "home") {
       });
     };
 
-    const sectionObserver = new IntersectionObserver(entries => {
-      const visibleEntries = entries
-        .filter(entry => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    const getSectionId = section => section.dataset.navTarget || section.id;
 
-      if (visibleEntries.length) {
-        const hashTarget = window.location.hash.slice(1);
-        const activeId = hashTarget && homeNavLinks.some(link => link.getAttribute("href") === `#${hashTarget}`)
-          ? hashTarget
-          : visibleEntries[0].target.dataset.navTarget || visibleEntries[0].target.id;
+    const updateActiveSection = () => {
+      const offset = window.innerHeight * 0.35;
+      let activeSection = homeSections[0];
 
-        setActiveLink(activeId);
-      }
-    }, {
-      rootMargin: "-35% 0px -45% 0px",
-      threshold: [0.2, 0.45, 0.7]
-    });
+      homeSections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= offset && rect.bottom > offset) {
+          activeSection = section;
+        }
+      });
 
-    homeSections.forEach(section => sectionObserver.observe(section));
+      setActiveLink(getSectionId(activeSection));
+    };
+
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+    updateActiveSection();
 
     if (window.location.hash) {
       setActiveLink(window.location.hash.slice(1));
