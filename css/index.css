@@ -76,7 +76,7 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  border: 1px solid rgba(193, 127, 59, 0.45);
+  border: 1px solid var(--border);
   color: var(--accent);
   display: inline-flex;
   align-items: center;
@@ -84,7 +84,7 @@
   font-size: 0.85rem;
   font-weight: 700;
   font-family: var(--font-mono);
-  background: rgba(253, 250, 246, 0.85);
+  background: rgba(var(--surface-rgb), 0.85);
   transition: transform var(--transition), border-color var(--transition), background var(--transition);
 }
 

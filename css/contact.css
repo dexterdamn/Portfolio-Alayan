@@ -98,7 +98,7 @@
   padding: 0.9rem 1rem;
   border: 1px solid var(--border);
   border-radius: 12px;
-  background: #fff;
+  background: var(--surface);
   color: var(--text);
   font-size: 0.96rem;
   transition: border-color var(--transition), box-shadow var(--transition);

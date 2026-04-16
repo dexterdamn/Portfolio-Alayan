@@ -1,6 +1,35 @@
 const siteHeader = document.querySelector(".site-header");
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".site-nav");
+const themeToggle = document.querySelector(".theme-toggle");
+const themeStorageKey = "themePreference";
+const sunIconSvg = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/></g></svg>';
+const moonIconSvg = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 0 1 11.21 3 7 7 0 1 0 21 12.79Z" fill="currentColor"/></svg>';
+
+const applyTheme = theme => {
+  document.documentElement.dataset.theme = theme;
+  if (themeToggle) {
+    themeToggle.classList.toggle("dark", theme === "dark");
+    themeToggle.classList.toggle("light", theme === "light");
+    themeToggle.innerHTML = theme === "dark" ? moonIconSvg : sunIconSvg;
+    themeToggle.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+  }
+  localStorage.setItem(themeStorageKey, theme);
+};
+
+const initTheme = () => {
+  const storedTheme = localStorage.getItem(themeStorageKey);
+  const defaultTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  applyTheme(storedTheme || defaultTheme);
+};
+
+const toggleTheme = () => {
+  const current = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+  applyTheme(current === "dark" ? "light" : "dark");
+};
+
+themeToggle?.addEventListener("click", toggleTheme);
+initTheme();
 
 window.addEventListener("scroll", () => {
   siteHeader?.classList.toggle("scrolled", window.scrollY > 12);
@@ -12,24 +41,40 @@ hamburger?.addEventListener("click", () => {
   hamburger.setAttribute("aria-expanded", String(isOpen));
 });
 
+const pageLinksByTarget = {
+  home: ["index.html", "#home"],
+  about: ["about.html", "#about"],
+  projects: ["projects.html", "#projects"],
+  contact: ["contact.html", "#contact"]
+};
+
+const setActiveLink = target => {
+  document.querySelectorAll(".site-nav a").forEach(link => {
+    const href = link.getAttribute("href");
+    const isActive = pageLinksByTarget[target]?.includes(href);
+    link.classList.toggle("active", Boolean(isActive));
+  });
+};
+
 document.querySelectorAll(".site-nav a").forEach(link => {
   link.addEventListener("click", () => {
     hamburger?.classList.remove("open");
     navMenu?.classList.remove("open");
     hamburger?.setAttribute("aria-expanded", "false");
+
+    const href = link.getAttribute("href");
+    if (href?.startsWith("#")) {
+      setActiveLink(href.slice(1));
+    }
   });
 });
 
 const currentPage = document.documentElement.dataset.page;
-document.querySelectorAll(".site-nav a").forEach(link => {
-  const href = link.getAttribute("href");
-  if (
-    (currentPage === "home" && href === "#home") ||
-    (currentPage === "about" && href === "about.html") ||
-    (currentPage === "projects" && href === "projects.html") ||
-    (currentPage === "contact" && href === "contact.html")
-  ) {
-    link.classList.add("active");
+setActiveLink(currentPage === "home" ? "home" : currentPage);
+
+window.addEventListener("hashchange", () => {
+  if (window.location.hash) {
+    setActiveLink(window.location.hash.slice(1));
   }
 });
 
@@ -50,7 +95,11 @@ if (currentPage === "home") {
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
       if (visibleEntries.length) {
-        const activeId = visibleEntries[0].target.dataset.navTarget || visibleEntries[0].target.id;
+        const hashTarget = window.location.hash.slice(1);
+        const activeId = hashTarget && homeNavLinks.some(link => link.getAttribute("href") === `#${hashTarget}`)
+          ? hashTarget
+          : visibleEntries[0].target.dataset.navTarget || visibleEntries[0].target.id;
+
         setActiveLink(activeId);
       }
     }, {
