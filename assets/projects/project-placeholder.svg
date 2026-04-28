@@ -5,8 +5,8 @@
       <stop offset="1" stop-color="#111827"/>
     </linearGradient>
     <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#c17f3b" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="#c17f3b" stop-opacity="0"/>
+      <stop offset="0" stop-color="#60a5fa" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#60a5fa" stop-opacity="0"/>
     </linearGradient>
   </defs>
 
@@ -22,6 +22,6 @@
 
   <g font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" fill="#e5e7eb">
     <text x="64" y="330" font-size="42" font-weight="700" opacity="0.95">Project Preview</text>
-    <text x="64" y="378" font-size="20" opacity="0.72">Add a screenshot image in <tspan fill="#c17f3b" opacity="1">assets/projects/</tspan></text>
+    <text x="64" y="378" font-size="20" opacity="0.72">Add a screenshot image in <tspan fill="#60a5fa" opacity="1">assets/projects/</tspan></text>
   </g>
 </svg>

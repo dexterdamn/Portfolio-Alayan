@@ -159,8 +159,12 @@ html[data-theme="dark"] .hero-canvas {
   height: 320px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: linear-gradient(145deg, #e6b56d, #c17f3b);
-  box-shadow: 0 20px 60px rgba(193, 127, 59, 0.18);
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--accent) 60%, var(--surface)),
+    var(--accent-deep)
+  );
+  box-shadow: 0 20px 60px rgba(var(--accent-rgb), 0.18);
 }
 
 .hero-photo {
@@ -186,7 +190,7 @@ html[data-theme="dark"] .hero-canvas {
   width: 78%;
   height: 4px;
   border-radius: 999px;
-  background: linear-gradient(90deg, rgba(193, 127, 59, 0.18), var(--accent));
+  background: linear-gradient(90deg, rgba(var(--accent-rgb), 0.18), var(--accent));
   transform: translateX(-50%);
 }
 
