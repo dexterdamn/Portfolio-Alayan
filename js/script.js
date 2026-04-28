@@ -72,6 +72,12 @@ document.querySelectorAll(".site-nav a").forEach(link => {
 const currentPage = document.documentElement.dataset.page;
 setActiveLink(currentPage === "home" ? "home" : currentPage);
 
+document.querySelectorAll(".footer-back-top").forEach(btn => {
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+
 window.addEventListener("hashchange", () => {
   if (window.location.hash) {
     setActiveLink(window.location.hash.slice(1));
@@ -209,5 +215,32 @@ window.showToast = showToast;
     document.startViewTransition(() => {
       window.location.assign(a.href);
     });
+  });
+})();
+
+(function initTechStack3DTilt() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  document.querySelectorAll(".tag-3d").forEach(el => {
+    const inner = el.querySelector(".tag-3d-inner");
+    if (!inner) return;
+    const setTilt = (clientX, clientY) => {
+      const r = el.getBoundingClientRect();
+      if (r.width < 1) return;
+      const x = (clientX - r.left) / r.width - 0.5;
+      const y = (clientY - r.top) / r.height - 0.5;
+      inner.style.setProperty("--rx", `${-y * 15}deg`);
+      inner.style.setProperty("--ry", `${x * 16}deg`);
+      inner.style.setProperty("--tz", "10px");
+    };
+    const reset = () => {
+      inner.style.setProperty("--rx", "0deg");
+      inner.style.setProperty("--ry", "0deg");
+      inner.style.setProperty("--tz", "0px");
+    };
+    el.addEventListener("pointermove", e => {
+      if (e.pointerType === "touch") return;
+      setTilt(e.clientX, e.clientY);
+    });
+    el.addEventListener("pointerleave", reset);
   });
 })();
