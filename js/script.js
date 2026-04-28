@@ -2,6 +2,7 @@ const siteHeader = document.querySelector(".site-header");
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".site-nav");
 const navOverlay = document.querySelector(".nav-overlay");
+const navMobileClose = document.querySelector(".nav-mobile-close");
 const themeToggles = Array.from(document.querySelectorAll(".theme-toggle"));
 const themeStorageKey = "themePreference";
 const sunIconSvg = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/></g></svg>';
@@ -56,6 +57,7 @@ hamburger?.addEventListener("click", () => {
 });
 
 navOverlay?.addEventListener("click", closeMobileNav);
+navMobileClose?.addEventListener("click", closeMobileNav);
 
 document.addEventListener(
   "pointerdown",
@@ -83,6 +85,13 @@ const pageLinksByTarget = {
   about: ["about.html", "#about"],
   projects: ["projects.html", "#projects"],
   contact: ["contact.html", "#contact"]
+};
+
+const getUrlWithoutHash = () => `${window.location.pathname}${window.location.search}`;
+
+const clearHashFromUrl = () => {
+  if (!window.location.hash) return;
+  history.replaceState(null, "", getUrlWithoutHash());
 };
 
 const setActiveLink = target => {
@@ -113,10 +122,35 @@ document.querySelectorAll(".footer-back-top").forEach(btn => {
   });
 });
 
+const scrollToHashTarget = (hash, behavior = "smooth") => {
+  const id = (hash || "").replace(/^#/, "");
+  if (!id) return false;
+  const el = document.getElementById(id);
+  if (!el) return false;
+  el.scrollIntoView({ behavior, block: "start" });
+  return true;
+};
+
+// Keep the URL clean (no '#') while preserving smooth-scroll navigation.
+document.addEventListener("click", e => {
+  const a = e.target.closest?.('a[href^="#"]');
+  if (!a) return;
+  const href = a.getAttribute("href");
+  if (!href || href === "#") return;
+
+  const scrolled = scrollToHashTarget(href, "smooth");
+  if (!scrolled) return;
+
+  e.preventDefault();
+  setActiveLink(href.slice(1));
+  clearHashFromUrl();
+});
+
 window.addEventListener("hashchange", () => {
-  if (window.location.hash) {
-    setActiveLink(window.location.hash.slice(1));
-  }
+  if (!window.location.hash) return;
+  setActiveLink(window.location.hash.slice(1));
+  scrollToHashTarget(window.location.hash, "auto");
+  clearHashFromUrl();
 });
 
 if (currentPage === "home") {
@@ -152,6 +186,8 @@ if (currentPage === "home") {
 
     if (window.location.hash) {
       setActiveLink(window.location.hash.slice(1));
+      scrollToHashTarget(window.location.hash, "auto");
+      clearHashFromUrl();
     }
   }
 }

@@ -947,6 +947,42 @@ html[data-page="home"] .footer-socials a:hover {
     border-bottom: 1px solid var(--border);
   }
 
+  .nav-mobile-close {
+    margin-left: auto;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent) 18%, transparent);
+    color: var(--text);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+    flex-shrink: 0;
+  }
+
+  .nav-mobile-close svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
+
+  .nav-mobile-close:hover {
+    background: color-mix(in srgb, var(--accent) 28%, transparent);
+    transform: translateX(-1px);
+  }
+
+  .nav-mobile-close:active {
+    transform: translateX(-2px);
+  }
+
+  .nav-mobile-close:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--accent) 65%, transparent);
+    outline-offset: 3px;
+  }
+
   .nav-mobile-avatar {
     width: 44px;
     height: 44px;
