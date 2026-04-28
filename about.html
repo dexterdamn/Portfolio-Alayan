@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-page="about">
 <head>
   <meta charset="UTF-8" />
@@ -21,12 +21,47 @@
         <span></span><span></span><span></span>
       </button>
       <nav id="site-nav" class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html" class="nav-cta">Contact</a>
-        <button class="theme-toggle" type="button" aria-label="Toggle color mode" title="Toggle color mode"></button>
+        <div class="nav-desktop" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html" class="nav-cta">Contact</a>
+          <button class="theme-toggle" type="button" aria-label="Toggle color mode" title="Toggle color mode"></button>
+        </div>
+
+        <div class="nav-mobile-head" aria-label="Profile">
+          <img src="image/dex.png" alt="" class="nav-mobile-avatar" />
+          <div class="nav-mobile-user">
+            <div class="nav-mobile-name">Dexter Alayan</div>
+            <div class="nav-mobile-sub">dexteralayan279@gmail.com</div>
+          </div>
+        </div>
+
+        <div class="nav-mobile-list" aria-label="Navigation links">
+          <a href="index.html" class="nav-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3 2.5 11.2l1.3 1.5L5 11.6V20h6v-6h2v6h6v-8.4l1.2 1.1 1.3-1.5L12 3z"/></svg>
+            <span>Home</span>
+          </a>
+          <a href="about.html" class="nav-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2c-4.4 0-8 2.3-8 5.2V21h16v-1.8c0-2.9-3.6-5.2-8-5.2Z"/></svg>
+            <span>About</span>
+          </a>
+          <a href="projects.html" class="nav-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 3h4a2 2 0 0 1 2 2v1h4v4h-2V8h-2v12a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V8H6v2H4V6h4V5a2 2 0 0 1 2-2Zm0 3h4V5h-4v1Zm0 4h4v2h-4v-2Zm0 4h4v2h-4v-2Z"/></svg>
+            <span>Projects</span>
+          </a>
+          <a href="contact.html" class="nav-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/></svg>
+            <span>Contact</span>
+          </a>
+        </div>
+
+        <div class="nav-mobile-foot" aria-label="Navigation footer">
+          <span class="nav-foot-note">Theme</span>
+          <button class="theme-toggle" type="button" aria-label="Toggle color mode" title="Toggle color mode"></button>
+        </div>
       </nav>
+      <div class="nav-overlay" aria-hidden="true"></div>
     </div>
   </header>
 
@@ -85,7 +120,7 @@
             <p class="tech-marquee-label">Programming languages</p>
             <div class="tech-marquee-row-center">
               <div class="tech-marquee-viewport">
-                <div class="tech-marquee-track" style="--marquee-duration: 76s">
+                <div class="tech-marquee-track" style="--marquee-duration: 10s">
                   <div class="tech-marquee-set">
                     <span class="tech-marquee-chip"><span class="tech-marquee-chip-inner"><span class="tech-marquee-chip-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.14.0/icons/python.svg" alt="" width="34" height="34" loading="lazy" decoding="async" /></span><span class="tech-marquee-chip-name">Python</span></span></span>
                     <span class="tech-marquee-chip"><span class="tech-marquee-chip-inner"><span class="tech-marquee-chip-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.14.0/icons/html5.svg" alt="" width="34" height="34" loading="lazy" decoding="async" /></span><span class="tech-marquee-chip-name">HTML</span></span></span>
@@ -112,7 +147,7 @@
             <p class="tech-marquee-label">Frameworks &amp; libraries</p>
             <div class="tech-marquee-row-center">
               <div class="tech-marquee-viewport">
-                <div class="tech-marquee-track" style="--marquee-duration: 70s">
+                <div class="tech-marquee-track" style="--marquee-duration: 54s">
                   <div class="tech-marquee-set">
                     <span class="tech-marquee-chip"><span class="tech-marquee-chip-inner"><span class="tech-marquee-chip-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.14.0/icons/react.svg" alt="" width="34" height="34" loading="lazy" decoding="async" /></span><span class="tech-marquee-chip-name">React</span></span></span>
                     <span class="tech-marquee-chip"><span class="tech-marquee-chip-inner"><span class="tech-marquee-chip-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.14.0/icons/nextdotjs.svg" alt="" width="34" height="34" loading="lazy" decoding="async" /></span><span class="tech-marquee-chip-name">Next.js</span></span></span>
@@ -135,7 +170,7 @@
             <p class="tech-marquee-label">Databases, cloud &amp; DevOps</p>
             <div class="tech-marquee-row-center">
               <div class="tech-marquee-viewport">
-                <div class="tech-marquee-track" style="--marquee-duration: 74s">
+                <div class="tech-marquee-track" style="--marquee-duration: 58s">
                   <div class="tech-marquee-set">
                     <span class="tech-marquee-chip"><span class="tech-marquee-chip-inner"><span class="tech-marquee-chip-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.14.0/icons/githubactions.svg" alt="" width="34" height="34" loading="lazy" decoding="async" /></span><span class="tech-marquee-chip-name">GitHub Actions</span></span></span>
                     <span class="tech-marquee-chip"><span class="tech-marquee-chip-inner"><span class="tech-marquee-chip-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.14.0/icons/mysql.svg" alt="" width="34" height="34" loading="lazy" decoding="async" /></span><span class="tech-marquee-chip-name">MySQL</span></span></span>
@@ -160,7 +195,7 @@
             <p class="tech-marquee-label">Mobile, real-time &amp; tools</p>
             <div class="tech-marquee-row-center">
               <div class="tech-marquee-viewport">
-                <div class="tech-marquee-track" style="--marquee-duration: 68s">
+                <div class="tech-marquee-track" style="--marquee-duration: 52s">
                   <div class="tech-marquee-set">
                     <span class="tech-marquee-chip"><span class="tech-marquee-chip-inner"><span class="tech-marquee-chip-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.14.0/icons/figma.svg" alt="" width="34" height="34" loading="lazy" decoding="async" /></span><span class="tech-marquee-chip-name">Figma</span></span></span>
                     <span class="tech-marquee-chip"><span class="tech-marquee-chip-inner"><span class="tech-marquee-chip-icon-wrap"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.14.0/icons/vite.svg" alt="" width="34" height="34" loading="lazy" decoding="async" /></span><span class="tech-marquee-chip-name">Vite</span></span></span>

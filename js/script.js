@@ -1,19 +1,20 @@
 const siteHeader = document.querySelector(".site-header");
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".site-nav");
-const themeToggle = document.querySelector(".theme-toggle");
+const navOverlay = document.querySelector(".nav-overlay");
+const themeToggles = Array.from(document.querySelectorAll(".theme-toggle"));
 const themeStorageKey = "themePreference";
 const sunIconSvg = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/></g></svg>';
 const moonIconSvg = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 0 1 11.21 3 7 7 0 1 0 21 12.79Z" fill="currentColor"/></svg>';
 
 const applyTheme = theme => {
   document.documentElement.dataset.theme = theme;
-  if (themeToggle) {
-    themeToggle.classList.toggle("dark", theme === "dark");
-    themeToggle.classList.toggle("light", theme === "light");
-    themeToggle.innerHTML = theme === "dark" ? moonIconSvg : sunIconSvg;
-    themeToggle.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
-  }
+  themeToggles.forEach(btn => {
+    btn.classList.toggle("dark", theme === "dark");
+    btn.classList.toggle("light", theme === "light");
+    btn.innerHTML = theme === "dark" ? moonIconSvg : sunIconSvg;
+    btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+  });
   localStorage.setItem(themeStorageKey, theme);
 };
 
@@ -28,17 +29,37 @@ const toggleTheme = () => {
   applyTheme(current === "dark" ? "light" : "dark");
 };
 
-themeToggle?.addEventListener("click", toggleTheme);
+themeToggles.forEach(btn => btn.addEventListener("click", toggleTheme));
 initTheme();
 
 window.addEventListener("scroll", () => {
   siteHeader?.classList.toggle("scrolled", window.scrollY > 12);
 });
 
+const closeMobileNav = () => {
+  hamburger?.classList.remove("open");
+  navMenu?.classList.remove("open");
+  navOverlay?.classList.remove("open");
+  document.body.classList.remove("nav-open");
+  hamburger?.setAttribute("aria-expanded", "false");
+};
+
 hamburger?.addEventListener("click", () => {
   const isOpen = hamburger.classList.toggle("open");
   navMenu?.classList.toggle("open", isOpen);
+  navOverlay?.classList.toggle("open", isOpen);
+  document.body.classList.toggle("nav-open", isOpen);
   hamburger.setAttribute("aria-expanded", String(isOpen));
+});
+
+navOverlay?.addEventListener("click", closeMobileNav);
+
+window.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeMobileNav();
+});
+
+window.addEventListener("resize", () => {
+  if (window.matchMedia("(min-width: 769px)").matches) closeMobileNav();
 });
 
 const pageLinksByTarget = {
@@ -58,9 +79,7 @@ const setActiveLink = target => {
 
 document.querySelectorAll(".site-nav a").forEach(link => {
   link.addEventListener("click", () => {
-    hamburger?.classList.remove("open");
-    navMenu?.classList.remove("open");
-    hamburger?.setAttribute("aria-expanded", "false");
+    closeMobileNav();
 
     const href = link.getAttribute("href");
     if (href?.startsWith("#")) {

@@ -320,4 +320,40 @@
   .story-card { padding: 2rem; }
 }
 
+@media (max-width: 720px) {
+  .filter-bar {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    scrollbar-width: thin;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-item {
+    padding: 1.5rem;
+  }
+
+  .project-media {
+    margin: -1.5rem -1.5rem 1.1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .filter-btn {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.84rem;
+  }
+
+  .project-item {
+    padding: 1.25rem;
+  }
+
+  .project-media {
+    margin: -1.25rem -1.25rem 1rem;
+  }
 }
