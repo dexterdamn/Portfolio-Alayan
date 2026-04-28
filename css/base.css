@@ -256,16 +256,16 @@ html[data-page="home"] .nav-cta:hover {
   display: none;
   width: 44px;
   height: 44px;
-  padding: 0;
-  border: 1px solid var(--border);
+  padding: 10px;
+  border: 0;
   border-radius: var(--radius-sm);
-  background: var(--surface);
-  align-items: center;
+  background: transparent;
+  align-items: flex-end;
   justify-content: center;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
   cursor: pointer;
-  transition: border-color var(--transition);
+  transition: background var(--transition), color var(--transition);
 }
 
 .theme-toggle {
@@ -302,7 +302,12 @@ html[data-theme="dark"] .theme-toggle {
   background: var(--surface);
 }
 
-.hamburger:hover { border-color: var(--border-strong); }
+.hamburger:hover { background: var(--accent-soft); }
+
+.hamburger:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 65%, transparent);
+  outline-offset: 3px;
+}
 
 html[data-page="home"] .hamburger {
   border-color: var(--border);
@@ -314,10 +319,10 @@ html[data-page="home"] .hamburger span {
 }
 
 .hamburger span {
-  width: 18px;
-  height: 2px;
+  width: 24px;
+  height: 2.5px;
   background: var(--text);
-  border-radius: 2px;
+  border-radius: 999px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -860,7 +865,28 @@ html[data-page="home"] .footer-socials a:hover {
 @media (max-width: 768px) {
   :root { --header-h: 64px; }
 
+  .nav-shell {
+    position: relative;
+    justify-content: center;
+  }
+
+  .brand {
+    margin: 0 auto;
+    text-align: center;
+  }
+
   .hamburger { display: inline-flex; }
+
+  .hamburger {
+    position: absolute;
+    left: 0;
+  }
+
+  .theme-toggle {
+    margin-left: 0;
+    position: absolute;
+    right: 0;
+  }
 
   .nav-desktop { display: none; }
 
