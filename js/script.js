@@ -44,6 +44,9 @@ const closeMobileNav = () => {
   hamburger?.setAttribute("aria-expanded", "false");
 };
 
+const isMobileNavOpen = () =>
+  Boolean(hamburger?.classList.contains("open") || navMenu?.classList.contains("open"));
+
 hamburger?.addEventListener("click", () => {
   const isOpen = hamburger.classList.toggle("open");
   navMenu?.classList.toggle("open", isOpen);
@@ -53,6 +56,19 @@ hamburger?.addEventListener("click", () => {
 });
 
 navOverlay?.addEventListener("click", closeMobileNav);
+
+document.addEventListener(
+  "pointerdown",
+  e => {
+    if (!isMobileNavOpen()) return;
+    const target = e.target;
+    if (!(target instanceof Node)) return;
+    if (navMenu?.contains(target)) return;
+    if (hamburger?.contains(target)) return;
+    closeMobileNav();
+  },
+  { capture: true }
+);
 
 window.addEventListener("keydown", e => {
   if (e.key === "Escape") closeMobileNav();
