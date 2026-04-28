@@ -172,3 +172,42 @@ function showToast(icon, message, type = "success") {
 }
 
 window.showToast = showToast;
+
+/* Same-origin page navigations: cross-fade + 3D-style View Transition when supported */
+(function initViewTransitions() {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || typeof document.startViewTransition !== "function") return;
+
+  document.addEventListener("click", e => {
+    if (e.defaultPrevented) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (e.button !== 0) return;
+
+    const a = e.target.closest("a");
+    if (!a) return;
+    if (a.target === "_blank" || a.hasAttribute("download")) return;
+
+    const href = a.getAttribute("href");
+    if (!href || href.startsWith("#") || href.startsWith("javascript:")) return;
+    if (href.startsWith("mailto:") || href.startsWith("tel:")) return;
+
+    let url;
+    try {
+      url = new URL(a.href, window.location.href);
+    } catch {
+      return;
+    }
+
+    if (url.origin !== window.location.origin) return;
+    if (url.href === window.location.href) return;
+
+    const samePathAndSearch =
+      url.pathname === window.location.pathname && url.search === window.location.search;
+    if (samePathAndSearch && url.hash) return;
+
+    e.preventDefault();
+    document.startViewTransition(() => {
+      window.location.assign(a.href);
+    });
+  });
+})();

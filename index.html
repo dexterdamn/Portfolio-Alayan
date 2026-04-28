@@ -71,10 +71,13 @@
           </div>
         </div>
 
-        <div class="hero-visual reveal" aria-label="Profile photo">
-          <div class="hero-blob"></div>
-          <img src="image/dex.png" alt="Portrait of Dexter Alayan" class="hero-photo" />
-          <div class="hero-line"></div>
+        <div class="hero-visual reveal" data-tilt aria-label="Profile photo">
+          <canvas class="hero-canvas" aria-hidden="true"></canvas>
+          <div class="hero-3d-stage">
+            <div class="hero-blob"></div>
+            <img src="image/dex.png" alt="Portrait of Dexter Alayan" class="hero-photo" />
+            <div class="hero-line"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -490,7 +493,9 @@
     </div>
   </footer>
 
-  <script src="js/script.js"></script>
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js" defer></script>
+  <script src="js/script.js" defer></script>
+  <script src="js/hero-3d.js" defer></script>
   <script>
     document.getElementById("contact-form")?.addEventListener("submit", event => {
       event.preventDefault();

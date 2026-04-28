@@ -630,11 +630,73 @@ html[data-page="home"] .footer-socials a:hover {
 
 /* ---- PAGE ENTER ANIMATION ---- */
 @keyframes pageIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(18px) perspective(1400px) rotateX(5deg) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) perspective(1400px) rotateX(0) scale(1);
+  }
 }
 
-.page-enter { animation: pageIn 0.45s cubic-bezier(0.4,0,0.2,1) both; }
+.page-enter {
+  animation: pageIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter {
+    animation: none;
+  }
+}
+
+/* View Transitions API (supported browsers: smooth cross-page transition) */
+@supports (view-transition-name: none) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.45s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  ::view-transition-old(root) {
+    animation-name: vt-out;
+  }
+
+  ::view-transition-new(root) {
+    animation-name: vt-in;
+  }
+}
+
+@keyframes vt-out {
+  from {
+    opacity: 1;
+    transform: perspective(1200px) rotateX(0) scale(1);
+  }
+  to {
+    opacity: 0.88;
+    transform: perspective(1200px) rotateX(3deg) scale(0.99);
+  }
+}
+
+@keyframes vt-in {
+  from {
+    opacity: 0.75;
+    transform: perspective(1200px) rotateX(-4deg) translateY(12px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1200px) rotateX(0) translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @supports (view-transition-name: none) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation-duration: 0.01ms;
+    }
+  }
+}
 
 /* ---- RESPONSIVE ---- */
 @media (max-width: 768px) {

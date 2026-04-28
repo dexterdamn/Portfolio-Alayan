@@ -103,9 +103,52 @@
 .hero-visual {
   position: relative;
   min-height: 500px;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  perspective: 1100px;
+  transform-style: preserve-3d;
+}
+
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.95;
+  mix-blend-mode: normal;
+}
+
+html[data-theme="dark"] .hero-canvas {
+  opacity: 0.75;
+}
+
+.hero-canvas--static {
+  display: none;
+}
+
+.hero-3d-stage {
+  position: relative;
+  z-index: 1;
+  min-height: 500px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateZ(0);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.15s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-3d-stage {
+    transform: none;
+    transition: none;
+  }
+  .hero-canvas {
+    display: none;
+  }
 }
 
 .hero-blob {
@@ -258,6 +301,10 @@
     min-height: 430px;
   }
 
+  .hero-3d-stage {
+    min-height: 430px;
+  }
+
   .hero-blob {
     left: 50%;
     top: 48%;
@@ -307,6 +354,10 @@
   }
 
   .hero-visual {
+    min-height: 360px;
+  }
+
+  .hero-3d-stage {
     min-height: 360px;
   }
 
